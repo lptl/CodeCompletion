@@ -45,7 +45,7 @@ def exact_match(predicted: str, reference: str) -> bool:
 
 
 def edit_distance(predicted: str, reference: str) -> int:
-    """Calculate the edit (Levenshtein) distance between two code strings."""
+    """Calculate the edit  distance between two code strings."""
     dp = np.zeros((len(reference) + 1, len(predicted) + 1), dtype=int)
     for i in range(len(reference) + 1):
         dp[i][0] = i
@@ -133,17 +133,15 @@ def prepare_analysis():
             pickle.dump(predictions, f)
         with open("groundtruth.pkl", "wb") as f:
             pickle.dump(groundtruth, f)
+        with open("dataset.pkl", "wb") as f:
+            pickle.dump(dataset, f)
     else:
         with open("predictions.pkl", "rb") as f:
             predictions = pickle.load(f)
         with open("groundtruth.pkl", "rb") as f:
             groundtruth = pickle.load(f)
-
-    for i in range(len(predictions)):
-        print("Groundtruth")
-        print(groundtruth[i])
-        print("Prediction")
-        print(predictions[i])
+        with open("dataset.pkl", "rb") as f:
+            dataset = pickle.load(f)
 
     metrics = {
         "chrf": 0,

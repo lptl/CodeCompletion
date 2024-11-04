@@ -1,6 +1,5 @@
-# pip install -q transformers
+from typing import Literal
 from transformers import AutoModelForCausalLM, AutoTokenizer
-
 
 device = "cpu"
 
@@ -20,7 +19,7 @@ def get_prediction(
     input_text: str,
     tokenizer: AutoTokenizer,
     model: AutoModelForCausalLM,
-    max_new_tokens: 80,
+    max_new_tokens: int = 80,
 ) -> str:
     """get the code completion for a given input text"""
     inputs = tokenizer.encode(input_text, return_tensors="pt", padding=True).to(device)

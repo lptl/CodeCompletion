@@ -28,13 +28,13 @@ def find_function(file_content: str):
     return content
 
 
-def prepare_dataset(directory: str) -> List[str]:
+def prepare_dataset(directory: str) -> tuple[list[str], list[str]]:
     """prepare the dataset and related groundtruth"""
     dataset = []
     groundtruth = []
 
     files = os.listdir(directory)
-    random.Random(7).shuffle(files)
+    random.Random(21).shuffle(files)
     for filename in files:
         if filename.endswith(".py"):
             with open(os.path.join(directory, filename), "r") as file_handler:
