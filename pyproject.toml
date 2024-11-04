@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "code completion"
+version = "0.1.0"
+description = ""
+authors = ["k <manpolanic@outlook.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+transformers = "^4.46.1"
+pytest = "^8.3.3"
+black = "^24.10.0"
+mypy = "^1.13.0"
+torch = "^2.5.1"
+tqdm = "^4.66.6"
+nltk = "^3.9.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
